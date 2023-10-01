@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "关于我";
+const identity = {
+  firstName: "小大卫",
+  country: "中国",
+  occupation: "学生",
+  hobbies: ["电子游戏", "健身"],
+};
+const skills = ["javascript", "Vue", "Astro", "Spring", "SQLSever", "MySql"];
+const happy = true;
+const finished = true;
+const goal = 3;
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  .skill {
+    color: var(--skillColor);
+    text-transform: var(--textCase);
+    font-weight: var(--fontWeight);
+  }
+</style>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>……和我的个人网站！</h2>
+
+  <p>大家好，我是小大卫。很高兴有机会向大家介绍一下我自己。</p>
+
+  <p>随着我完成更多教程，该站点将更新，所以请继续查看我的旅程将如何进行吧！</p>
+  <p>以下是关于我的几个事实：</p>
+  <ul>
+    <li>我的名字是{identity.firstName}.</li>
+    <li>我住在{identity.country}。我的职业是{identity.occupation}。</li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          我的两个兴趣：{identity.hobbies[0]}和{identity.hobbies[1]}
+        </li>
+      )
+    }
+    <h2>教育背景</h2>
+    <p>
+      我目前是一名大学生，正在攻读我的学位。我对计算机科学和编程充满了热情，并努力提升自己的技能。
+    </p>
+
+    <h2>兴趣爱好</h2>
+    <p>
+      在业余时间，我喜欢编程，尤其是前端开发。我也热爱音乐，弹奏吉他是我放松和表达自己的方式之一。此外，我也喜欢阅读各种类型的书籍，不仅扩展了我的知识，还提高了我的思考能力。
+    </p>
+
+    <h2>未来展望</h2>
+    <p>
+      我对未来充满了期待。我希望在我的学业和职业生涯中不断学习和成长，成为一名优秀的开发者，并为社会做出积极的贡献。
+    </p>
+
+    <h2>感谢您的关注</h2>
+    <p>
+      感谢您花时间了解我。如果您有任何问题或想要进一步了解我，请随时联系我。我期待与各位共同学习和成长。
+    </p>
+  </ul>
+  {happy && <p>我非常乐意分享我的学习过程！</p>}
+
+  {finished && <p>我完成了这个网站！</p>}
+
+  {goal === 3 ? <p>我的目标是在三天内完成。</p> : <p>我的目标不是 3 天。</p>}
+  <p>我的技能是：</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+</BaseLayout>

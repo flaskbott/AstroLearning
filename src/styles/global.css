@@ -1,0 +1,274 @@
+html {
+    
+    
+    /*background-color: #ffde04;*/
+    font-family: sans-serif;
+    
+}
+
+body {
+    color: #ea2c2c;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 80ch;
+    padding: 1rem;
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+h1 {
+    color: purple;
+    margin: 1rem 0;
+    font-size: 4rem;
+}
+/*暗黑模式*/
+html.dark {
+    background-color: #0d0950;
+    color: #fff;
+}
+
+.dark .nav-links a {
+    color: #fff;
+}
+/* 导航样式 */
+.hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    display: block;
+    width: 40px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: #ff9776;
+}
+.nav-links {
+    width: 100%;
+    top: 5rem;
+    left: 48px;
+    background-color: #ff9776;
+    display: none;
+    margin: 0;
+}
+
+.nav-links a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 3vw #04b2f705;
+        animation: flux 2s linear infinite;
+}
+
+.nav-links a:hover, a:focus {
+    /*background-color: #ff9776;*/
+    text-shadow: 0 0 3vw #F4BD0A;
+        animation: neon 2s ease-in-out infinite;
+}
+@keyframes flux {
+
+    0%,
+    100% {
+        text-shadow: 0 0 0.5vw #04fc67, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+        color: #03fb6a;
+    }
+
+}
+@keyframes neon {
+
+    0%,
+    100% {
+        text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+        color: #FFFC00;
+    }
+
+    50% {
+        text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+        color: #806914;
+    }
+}
+
+.expanded {
+    display: unset;
+}
+
+@media screen and (min-width: 636px) {
+    .nav-links {
+        margin-left: 5em;
+        display: block;
+        position: static;
+        width: auto;
+        background: none;
+    }
+
+    .nav-links a {
+        display: inline-block;
+        padding: 15px 20px;
+    }
+    .hamburger {
+            display: none;
+    }
+
+}
+a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 3vw #04b2f705;
+    animation: flux 2s linear infinite;
+}
+
+a:hover,
+a:focus {
+    /*background-color: #ff9776;*/
+    text-shadow: 0 0 3vw #f4bd0a;
+    animation: neon 2s ease-in-out infinite;
+}
+
+@keyframes flux {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 0.1vw #e404fc,
+            0 0 3vw #1041ff,
+            0 0 10vw #1041ff,
+            0 0 10vw #1041ff,
+            0 0 0.4vw #8bfdfe,
+            0.5vw 0.5vw 0.1vw #147280;
+        color: #f703fb;
+    }
+}
+
+@keyframes neon {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 1vw #fa1c16,
+            0 0 3vw #fa1c16,
+            0 0 10vw #fa1c16,
+            0 0 10vw #fa1c16,
+            0 0 0.4vw #fed128,
+            0.5vw 0.5vw 0.1vw #806914;
+        color: #fffc00;
+    }
+
+    50% {
+        text-shadow:
+            0 0 0.5vw #800e0b,
+            0 0 1.5vw #800e0b,
+            0 0 5vw #800e0b,
+            0 0 5vw #800e0b,
+            0 0 0.2vw #800e0b,
+            0.5vw 0.5vw 0.1vw #40340a;
+        color: #806914;
+    }
+}
+/**/
+h1 {
+    position: relative;
+}
+h1{
+    text-shadow: 0 0 3vw #f4bd0a;
+        animation: neon 2s ease-in-out infinite;
+}
+h1:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 2px;
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+}
+
+h1.glitched {
+    animation-name: glitched;
+    animation-duration: calc(.9s * 1.4);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes glitched {
+    0% {
+        left: -4px;
+        transform: skew(-20deg);
+    }
+
+    11% {
+        left: 2px;
+        transform: skew(0deg);
+    }
+
+    50% {
+        transform: skew(0deg);
+    }
+
+    51% {
+        transform: skew(10deg);
+    }
+
+    60% {
+        transform: skew(0deg);
+    }
+
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+h1.glitched:before {
+    animation-name: beforeglitched;
+    animation-duration: calc(.9s * 2);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes beforeglitched {
+    0% {
+        left: -4px;
+        transform: skew(-20deg);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    }
+
+    11% {
+        left: 2px;
+        transform: skew(0deg);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    }
+
+    50% {
+        transform: skew(0deg);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    }
+
+    51% {
+        transform: skew(0deg);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 40% 5px, calc(40% - 30px) 0px, calc(40% + 30px) 0px, calc(45% - 15px) 5px, 100% 5px, 100% 6px, calc(45% - 14px) 6px, calc(40% + 29px) 1px, calc(40% - 29px) 1px, calc(40% + 1px) 6px, 85px 6px, 80px 10px, 0px 10px);
+    }
+
+    60% {
+        transform: skew(0deg);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    }
+
+    100% {
+        transform: skew(0deg);
+        clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    }
+}

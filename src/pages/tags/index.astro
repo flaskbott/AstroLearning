@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
+const allPosts = await Astro.glob("../posts/*.md");
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+const pageTitle = "标签索引";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <div class="tags">
+    {
+      tags.map((tag) => (
+        <p class="tag">
+          <a class="tag-link" href={`/tags/${tag}`}>
+            {tag}
+          </a>
+        </p>
+      ))
+    }
+  </div>
+</BaseLayout>
+<style>
+  a .tag-link {
+    color: #00539f;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 10px;
+    padding: 5px;
+    position: relative;
+    font-size: 1.2rem;
+    color: var(--yellow-color);
+    border: 30px solid var(--yellow-color);
+    border-right: 5px solid var(--yellow-color);
+    border-left: 5px solid var(--yellow-color);
+    border-bottom: 24px solid var(--yellow-color);
+    background-color: #000;
+    clip-path: polygon(
+      0px 25px,
+      26px 0px,
+      calc(60% - 25px) 0px,
+      60% 25px,
+      100% 25px,
+      100% calc(100% - 10px),
+      calc(100% - 15px) calc(100% - 10px),
+      calc(80% - 10px) calc(100% - 10px),
+      calc(80% - 15px) 100%,
+      80px calc(100% - 0px),
+      65px calc(100% - 15px),
+      0% calc(100% - 15px)
+    );
+  }
+</style>
